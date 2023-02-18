@@ -1,23 +1,21 @@
-package ru.dmitryskor.rickandmortyapi.di.network
+package ru.dmitryskor.rickandmortyapi.core.network
 
+import okhttp3.HttpUrl
 import retrofit2.Retrofit
-import ru.dmitryskor.rickandmortyapi.core.network.AppService
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
  */
-object ProviderAppService {
-    private var retrofit: AppService? = null
-    private const val HOST_NAME = "https://rickandmortyapi.com/api/"
+object ProviderRetrofit {
+    private var retrofit: Retrofit? = null
 
-    fun getAppService(): AppService {
+    fun getRetrofit(): Retrofit {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(ProviderGsonBuilder.getGsonBuilder().create()))
-                .baseUrl(HOST_NAME)
+                .baseUrl(HttpUrl.get("http://localhost/"))
                 .build()
-                .create(AppService::class.java)
         }
         return retrofit!!
     }

@@ -1,4 +1,4 @@
-package ru.dmitryskor.rickandmortyapi.di.network
+package ru.dmitryskor.rickandmortyapi.core.network
 
 import com.google.gson.GsonBuilder
 

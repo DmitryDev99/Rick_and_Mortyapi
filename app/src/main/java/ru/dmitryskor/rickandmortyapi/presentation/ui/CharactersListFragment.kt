@@ -9,8 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import ru.dmitryskor.rickandmortyapi.data.model.PageResponse
+import ru.dmitryskor.rickandmortyapi.data.network.CharactersService
 import ru.dmitryskor.rickandmortyapi.databinding.FragmentChracterListBinding
-import ru.dmitryskor.rickandmortyapi.di.network.ProviderAppService
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
@@ -35,7 +36,7 @@ class CharactersListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         lifecycleScope.launch(Dispatchers.IO) {
-            println(ProviderAppService.getAppService().get("character", mapOf("page" to "1")).body())
+            println(CharactersService.getService().get<PageResponse>("character", mapOf("page" to "1")).body())
         }
     }
 
