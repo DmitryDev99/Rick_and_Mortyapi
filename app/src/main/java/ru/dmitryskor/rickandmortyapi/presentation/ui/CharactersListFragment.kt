@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.dmitryskor.rickandmortyapi.core.network.AppService
 import ru.dmitryskor.rickandmortyapi.databinding.FragmentChracterListBinding
 import ru.dmitryskor.rickandmortyapi.di.network.ProviderAppService
 
@@ -44,5 +43,4 @@ class CharactersListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
