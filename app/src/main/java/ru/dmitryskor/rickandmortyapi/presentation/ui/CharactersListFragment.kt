@@ -6,10 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ru.dmitryskor.rickandmortyapi.core.network.AppService
 import ru.dmitryskor.rickandmortyapi.databinding.FragmentChracterListBinding
+import ru.dmitryskor.rickandmortyapi.di.network.ProviderAppService
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
+ *
+ * Фрагмент содержит список персонажей с постраничной подгрузкой
  */
 class CharactersListFragment : Fragment() {
 
@@ -28,7 +35,9 @@ class CharactersListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        lifecycleScope.launch(Dispatchers.IO) {
+            println(ProviderAppService.getAppService().get("character", mapOf("page" to "1")).body())
+        }
     }
 
     override fun onDestroyView() {
