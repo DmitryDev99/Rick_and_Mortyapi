@@ -1,6 +1,6 @@
 package ru.dmitryskor.rickandmortyapi.data.interactor
 
-import ru.dmitryskor.rickandmortyapi.data.entity.CharacterEntity
+import ru.dmitryskor.rickandmortyapi.data.model.CharacterEntity
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
