@@ -1,6 +1,6 @@
 package ru.dmitryskor.rickandmortyapi.core.network
 
-import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -14,7 +14,7 @@ object ProviderRetrofit {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(ProviderGsonBuilder.getGsonBuilder().create()))
-                .baseUrl(HttpUrl.get("http://localhost/"))
+                .baseUrl("http://localhost/".toHttpUrl())
                 .build()
         }
         return retrofit!!

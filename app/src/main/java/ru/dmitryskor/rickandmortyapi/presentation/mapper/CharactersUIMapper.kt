@@ -1,7 +1,9 @@
 package ru.dmitryskor.rickandmortyapi.presentation.mapper
 
+import ru.dmitryskor.rickandmortyapi.R
 import ru.dmitryskor.rickandmortyapi.core.map.Mapper
 import ru.dmitryskor.rickandmortyapi.domain.model.CharacterEntity
+import ru.dmitryskor.rickandmortyapi.domain.model.GenderCharacter
 import ru.dmitryskor.rickandmortyapi.domain.model.StatusCharacter
 import ru.dmitryskor.rickandmortyapi.presentation.model.CharacterUIEntity
 import ru.dmitryskor.rickandmortyapi.presentation.model.StatusUICharacter
@@ -20,7 +22,12 @@ class CharactersUIMapper : Mapper<CharacterEntity, CharacterUIEntity>() {
                 StatusCharacter.UNKNOWN -> StatusUICharacter.UNKNOWN
             },
             from.species,
-            from.genderCharacter.name.lowercase().replaceFirstChar { it.uppercase() },
+            when (from.genderCharacter) {
+                GenderCharacter.FEMALE -> R.string.female_gender
+                GenderCharacter.MALE -> R.string.male_gender
+                GenderCharacter.GENDERLESS -> R.string.genderless
+                GenderCharacter.UNKNOWN -> R.string.unknown_gender
+            },
             from.imageLink
         )
     }

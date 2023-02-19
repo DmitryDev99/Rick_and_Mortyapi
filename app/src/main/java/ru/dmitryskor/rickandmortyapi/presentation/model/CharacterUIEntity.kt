@@ -1,6 +1,7 @@
 package ru.dmitryskor.rickandmortyapi.presentation.model
 
 import android.content.Context
+import androidx.annotation.StringRes
 import ru.dmitryskor.rickandmortyapi.R
 
 /**
@@ -11,7 +12,7 @@ data class CharacterUIEntity(
     private val name: String?,
     val status: StatusUICharacter,
     private val species: String?,
-    val gender: String,
+    @StringRes private val gender: Int,
     val imageLink: String?,
 ) {
     fun getNameCharacter(context: Context): String {
@@ -22,5 +23,9 @@ data class CharacterUIEntity(
                 species
             }
         }"
+    }
+
+    fun getGender(context: Context): String {
+        return "${context.getString(R.string.gender)}: ${context.getString(gender)}"
     }
 }

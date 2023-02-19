@@ -3,6 +3,7 @@ package ru.dmitryskor.rickandmortyapi.presentation.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import androidx.paging.map
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -20,11 +21,19 @@ import ru.dmitryskor.rickandmortyapi.presentation.model.CharacterUIEntity
  * Created by Dmitry Skorodumov on 18.02.2023
  */
 class CharactersListViewModel : ViewModel() {
-    val characters: StateFlow<PagingData<CharacterUIEntity>> = GetCharacterUseCase(CharactersRepositoryImpl(
+
+    private val repository = CharactersRepositoryImpl(
         RemoteCharacterPagingDataSource(CharactersService.getService())
-    ), CharactersMapper()).invoke().map { pagingData ->
-        pagingData.map {
-            CharactersUIMapper().map(it)
+    )
+
+    val characters: StateFlow<PagingData<CharacterUIEntity>> =
+        GetCharacterUseCase(
+            repository, CharactersMapper()
+        ).invoke().map { pagingData ->
+            pagingData.map {
+                CharactersUIMapper().map(it)
+            }
         }
-    }.stateIn(viewModelScope, SharingStarted.Lazily, PagingData.empty())
+            .cachedIn(viewModelScope)
+            .stateIn(viewModelScope, SharingStarted.Lazily, PagingData.empty())
 }

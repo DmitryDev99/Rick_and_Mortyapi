@@ -5,4 +5,12 @@
     <string name="unknown_status">Неизвестно</string>
     <string name="unknown_name">Имя неизвестно</string>
     <string name="unknown_species">Вид неизвестен</string>
+    <string name="male_gender">М</string>
+    <string name="female_gender">Ж</string>
+    <string name="genderless">Не имеет</string>
+    <string name="unknown_gender">Неизвестен</string>
+    <string name="gender">Пол</string>
+    <string name="try_again">Попробуйте снова</string>
+    <string name="error_default">Ошибка!</string>
+    <string name="error_with_description">Ошибка</string>
 </resources>

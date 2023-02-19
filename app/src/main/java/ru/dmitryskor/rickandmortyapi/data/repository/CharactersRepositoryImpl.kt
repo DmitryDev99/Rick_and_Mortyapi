@@ -12,13 +12,13 @@ import ru.dmitryskor.rickandmortyapi.domain.repository.CharactersRepository
  * Created by Dmitry Skorodumov on 18.02.2023
  */
 class CharactersRepositoryImpl(
-    private val remoteDataSource: RemoteCharacterPagingDataSource
+    private val remotePagingDataSource: RemoteCharacterPagingDataSource
 ) : CharactersRepository {
     override fun getCharacters(): Flow<PagingData<CharacterResponse>> {
         return Pager(PagingConfig(
             pageSize = 3
         )) {
-            remoteDataSource
+            remotePagingDataSource
         }.flow
     }
 }

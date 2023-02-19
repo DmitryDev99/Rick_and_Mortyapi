@@ -11,7 +11,6 @@ import retrofit2.http.QueryMap
  */
 
 interface AppService {
-
     @GET("{method}")
     suspend fun get(
         @Path(value = "method") method: String,

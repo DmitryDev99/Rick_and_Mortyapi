@@ -4,5 +4,8 @@ package ru.dmitryskor.rickandmortyapi.domain.model
  * Created by Dmitry Skorodumov on 19.02.2023
  */
 enum class GenderCharacter {
-    FEMALE, MALE, GENDERLESS, UNKNOWN
+    FEMALE,
+    MALE,
+    GENDERLESS,
+    UNKNOWN
 }
