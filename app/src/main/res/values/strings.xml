@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Rick and Mortyapi</string>
+    <string name="alive_status">Персонаж Жив</string>
+    <string name="dead_status">Персонаж мертв</string>
+    <string name="unknown_status">Неизвестно</string>
+    <string name="unknown_name">Имя неизвестно</string>
+    <string name="unknown_species">Вид неизвестен</string>
 </resources>

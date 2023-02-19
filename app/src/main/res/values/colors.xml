@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="positive_case">#3D9C3D</color>
+    <color name="negative_case">#9C3D3D</color>
+    <color name="neutral_case">#969696</color>
 </resources>

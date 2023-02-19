@@ -6,4 +6,8 @@ import android.app.Application
  * Created by Dmitry Skorodumov on 18.02.2023
  */
 class RickAndMortyApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        this.applicationContext
+    }
 }

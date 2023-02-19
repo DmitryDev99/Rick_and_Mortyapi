@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation"
-    app:startDestination="@id/charactersListFragment">
+    android:id="@+id/main_navigation" >
 
-    <fragment
-        android:id="@+id/charactersListFragment"
-        android:name="ru.dmitryskor.rickandmortyapi.presentation.ui.CharactersListFragment"
-        android:label="CharactersListFragment" />
+<!--    <fragment-->
+<!--        android:id="@+id/charactersListFragment"-->
+<!--        android:name="ru.dmitryskor.rickandmortyapi.presentation.ui.CharactersListFragment"-->
+<!--        android:label="CharactersListFragment" />-->
 </navigation>

@@ -6,4 +6,8 @@ package ru.dmitryskor.rickandmortyapi.domain.model
 data class CharacterEntity(
     val id: Int?,
     val name: String?,
+    val statusCharacter: StatusCharacter,
+    val species: String?,
+    val genderCharacter: GenderCharacter,
+    val imageLink: String?,
 )
