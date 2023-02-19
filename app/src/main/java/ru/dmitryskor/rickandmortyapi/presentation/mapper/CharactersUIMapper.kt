@@ -9,6 +9,9 @@ import ru.dmitryskor.rickandmortyapi.presentation.model.CharacterUIEntity
  */
 class CharactersUIMapper : Mapper<CharacterEntity, CharacterUIEntity>() {
     override fun map(from: CharacterEntity): CharacterUIEntity {
-        return CharacterUIEntity()
+        return CharacterUIEntity(
+            from.id,
+            from.name
+        )
     }
 }

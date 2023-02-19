@@ -5,6 +5,8 @@ import ru.dmitryskor.rickandmortyapi.core.network.BaseService
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
+ *
+ * Сервис для получения рик и морти api
  */
 object CharactersService : BaseService() {
     override var appService: AppService? = null

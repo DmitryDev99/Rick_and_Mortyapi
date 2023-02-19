@@ -1,7 +1,7 @@
 package ru.dmitryskor.rickandmortyapi.core.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import ru.dmitryskor.rickandmortyapi.R
 
 class MainActivity : AppCompatActivity() {

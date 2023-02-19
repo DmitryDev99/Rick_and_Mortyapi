@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import ru.dmitryskor.rickandmortyapi.data.model.PageResponse
-import ru.dmitryskor.rickandmortyapi.data.network.CharactersService
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.flow.collectLatest
 import ru.dmitryskor.rickandmortyapi.databinding.FragmentChracterListBinding
 
 /**
@@ -35,8 +33,11 @@ class CharactersListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            println(CharactersService.getService().get<PageResponse>("character", mapOf("page" to "1")).body())
+        val adapter = CharactersAdapter()
+        binding.listCharacters.adapter = adapter
+        binding.listCharacters.layoutManager = LinearLayoutManager(context)
+        lifecycleScope.launchWhenStarted {
+            viewModel.characters.collectLatest(adapter::submitData)
         }
     }
 

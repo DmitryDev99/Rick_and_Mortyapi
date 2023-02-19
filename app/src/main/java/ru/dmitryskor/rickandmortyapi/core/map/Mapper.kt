@@ -2,6 +2,8 @@ package ru.dmitryskor.rickandmortyapi.core.map
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
+ *
+ * Базовый класс для маппинга данных
  */
 
 abstract class Mapper<From, To> {

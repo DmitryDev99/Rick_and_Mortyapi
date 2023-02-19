@@ -1,5 +1,6 @@
 package ru.dmitryskor.rickandmortyapi.core.network
 
+import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -12,8 +13,8 @@ import retrofit2.http.QueryMap
 interface AppService {
 
     @GET("{method}")
-    suspend fun <T> get(
+    suspend fun get(
         @Path(value = "method") method: String,
         @QueryMap params: Map<String, String>
-    ): Response<T>
+    ): Response<JsonObject>
 }

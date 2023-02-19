@@ -2,6 +2,8 @@ package ru.dmitryskor.rickandmortyapi.core.network
 
 /**
  * Created by Dmitry Skorodumov on 18.02.2023
+ *
+ * Базовый класс сервиса для хранения [AppService]
  */
 abstract class BaseService {
     protected abstract var appService: AppService?
